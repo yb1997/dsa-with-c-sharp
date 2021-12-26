@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace DSAPractice.Algorithms.Sorting
 {
@@ -9,33 +8,6 @@ namespace DSAPractice.Algorithms.Sorting
         {
             return (num / place) % 10;
         }
-        class CountSort
-        {
-            public static void Sort(int[] items, int place) 
-            {
-                int size = items.Length;
-                int max = items.Max();
-                var count = new int[max + 1];
-                var output = new int[size];
-
-                Array.ForEach(items, num => ++count[GetDigit(num, place)]);
-
-                for (int i = 1; i < count.Length; i++)
-                {
-                    count[i] += count[i - 1];
-                }
-
-                Array.ForEach(items, num =>
-                {
-                    int index = count[GetDigit(num, place)] - 1;
-                    output[index] = num;
-                    --count[GetDigit(num, place)];
-                });
-
-                Array.Copy(output, items, size);
-            }
-        }
-
 
         public static void Sort(int[] items)
         {
@@ -43,7 +15,7 @@ namespace DSAPractice.Algorithms.Sorting
 
             for (int place = 1; max / place > 0; place *= 10)
             {
-                CountSort.Sort(items, place);
+                CountSort.Sort(items, num => GetDigit(num, place));
             }
         }
     }

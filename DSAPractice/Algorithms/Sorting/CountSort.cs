@@ -7,11 +7,18 @@ namespace DSAPractice.Algorithms.Sorting
     {
         public static void Sort(int[] items)
         {
+            Sort(items, ValueToCountOccurencesFor);
+        }
+
+        public static void Sort(int[] items, Func<int, int> Val)
+        {
+            if (Val is null) throw new ArgumentNullException(nameof(Val));
+
             int max = items.Max();
             var count = new int[max + 1];
             var output = new int[items.Length];
 
-            Array.ForEach(items, num => ++count[num]);
+            Array.ForEach(items, num => ++count[Val(num)]);
 
             for (int i = 1; i < count.Length; i++)
             {
@@ -20,12 +27,17 @@ namespace DSAPractice.Algorithms.Sorting
 
             Array.ForEach(items, num =>
             {
-                var index = count[num] - 1;
+                var index = count[Val(num)] - 1;
                 output[index] = num;
-                --count[num];
+                --count[Val(num)];
             });
 
             Array.Copy(output, items, items.Length);
+        }
+
+        static int ValueToCountOccurencesFor(int val)
+        {
+            return val;
         }
     }
 }
