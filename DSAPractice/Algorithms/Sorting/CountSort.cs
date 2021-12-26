@@ -25,10 +25,7 @@ namespace DSAPractice.Algorithms.Sorting
                 --count[num];
             });
 
-            for (int i = 0; i < items.Length; i++)
-            {
-                items[i] = output[i];
-            }
+            Array.Copy(output, items, items.Length);
         }
     }
 }
