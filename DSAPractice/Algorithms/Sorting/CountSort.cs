@@ -5,11 +5,20 @@ namespace DSAPractice.Algorithms.Sorting
 {
     class CountSort
     {
+        /// <summary>
+        /// Sorts an array in linear time - <b>d(n + k)</b> <br/>
+        /// where <b>d</b> is number of digits of largest number, <b>n</b> is number of items<br/> 
+        /// and <b>k</b> means largest number
+        /// </summary>
+        /// <param name="items"></param>
         public static void Sort(int[] items)
         {
             Sort(items, ValueToCountOccurencesFor);
         }
 
+        /// <inheritdoc cref="Sort(int[])"/>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <param name="Val"></param>
         public static void Sort(int[] items, Func<int, int> Val)
         {
             if (Val is null) throw new ArgumentNullException(nameof(Val));
