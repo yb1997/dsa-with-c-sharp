@@ -8,8 +8,9 @@ namespace DSAPractice
     {
         static void Main(string[] args)
         {
-            var items = new int[] { 40, 30, 20, 30, 10 };
-            var expectedItems = new int[] { 10, 20, 30, 30, 40 };
+            var items = new int[] { 4, 3, 2, 3, 1 };
+            var expectedItems = items.ToArray(); 
+            Array.Sort(expectedItems);
             //BubbleSort.Sort(items);
             //InsertionSort.Sort(items);
             //SelectionSort.Sort(items);
