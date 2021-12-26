@@ -22,6 +22,7 @@ namespace DSAPractice.Algorithms.Sorting
             {
                 var index = count[num] - 1;
                 output[index] = num;
+                --count[num];
             });
 
             for (int i = 0; i < items.Length; i++)

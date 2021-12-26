@@ -8,13 +8,14 @@ namespace DSAPractice
     {
         static void Main(string[] args)
         {
-            var items = new int[] { 30, 10, 20 };
+            var items = new int[] { 40, 30, 20, 30, 10 };
+            var expectedItems = new int[] { 10, 20, 30, 30, 40 };
             //BubbleSort.Sort(items);
             //InsertionSort.Sort(items);
             //SelectionSort.Sort(items);
-            var expectedItems = new int[] { 10, 20, 30 };
-            CountSort.Sort(items);
-            bool isSorted = items.SequenceEqual(expectedItems);
+            //CountSort.Sort(items);
+            RadixSort.Sort(items);
+            var isSorted = items.SequenceEqual(expectedItems);
             Console.WriteLine($"isSorted: {isSorted}");
 
             Console.ReadKey();
