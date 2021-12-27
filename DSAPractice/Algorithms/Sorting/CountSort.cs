@@ -18,7 +18,7 @@ namespace DSAPractice.Algorithms.Sorting
 
         /// <inheritdoc cref="Sort(int[])"/>
         /// <exception cref="ArgumentNullException"></exception>
-        /// <param name="Val"></param>
+        /// <param name="Val">provide the number to count occurences for</param>
         public static void Sort(int[] items, Func<int, int> Val)
         {
             if (Val is null) throw new ArgumentNullException(nameof(Val));
